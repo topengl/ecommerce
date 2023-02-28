@@ -1,20 +1,25 @@
 import React from 'react';
 import Link from 'next/link';
 
-const HeroBanner = () => {
+// import the urlFor property for images
+import {urlFor} from '../lib/client';
+
+// accept a heroBanner prop inside here and use it
+const HeroBanner = ({heroBanner}) => {
   return (
     <div className="hero-banner-container">
         <div>
-            <p className="beats-solo">SMALL TEXT</p>
-            <h3>MID TEXT</h3>
-            <img src="" alt="Headphones" className="hero-banner-image" />
+            <p className="beats-solo">{heroBanner.smallText}</p>
+            <h3>{heroBanner.midText}</h3>
+            <h1>{heroBanner.largeText1}</h1>
+            <img src={urlFor(heroBanner.image)} alt="Headphones" className="hero-banner-image" />
         <div>
-            <Link href="/product/ID">
-                <button type="button">button text</button>
+            <Link href={`/product/ID${heroBanner.product}`}>
+                <button type="button">{heroBanner.buttonText}</button>
             </Link>
             <div className="desc">
-                <h5>DESCRIPTION</h5>
-                <p>actual description</p>
+                <h5>Description</h5>
+                <p>{heroBanner.desc}</p>
             </div>
         </div>
         </div>
