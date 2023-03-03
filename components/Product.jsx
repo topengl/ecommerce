@@ -1,8 +1,27 @@
-import React from 'react'
+import React from 'react';
+import Link from 'next/link'; // we gonna use that to link to the product details page
 
-const Product = () => {
+import {urlFor} from '../lib/client'; // we gonna use that to get the urla for the image inside our sanity dashboard
+
+// destructure some things from inside of our product with ":""
+// like that we are ready to return some jsx
+const Product = ({ product: {image, name, slug, price} }) => {
   return (
-    <div>Product</div>
+    <div>
+        <Link href={`/product${slug.current}`}>
+            <div className="product-card">
+                <img
+                src={urlFor(image && image[0])}
+                width={250}
+                height={250}
+                className="product-image"
+                />
+                <p className="produdct-name">{name}</p>
+                <p className="produdct-price">${price}</p>
+
+            </div>
+        </Link>
+    </div>
   )
 }
 
