@@ -15,8 +15,8 @@ const Home = ({products, bannerData}) => {
       <div className="products-container">
         {products?.map((product)=><Product key={product._id} product ={product}/>)}
       </div>
-
-      <FooterBanner />
+      {/*FooterBanner is a JSX element. The JSX element is here given the property footerBanner. The property gets returned bannerData[0], if bannerData exists. J*/}
+      <FooterBanner footerBanner={bannerData && bannerData[0]} />
 
     </>
   )
