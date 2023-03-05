@@ -128,68 +128,104 @@ width: 100%;
   color: black;
 }
 
+/* topin: hero banner should only be shown, when you scroll up, but not on load of page */
 .hero-banner-container{
+
   padding: 100px 40px;
   background-color: #dcdcdc;
   border-radius: 15px;
   position: relative;
-  height: 500px;
+  height: 300px;
+  max-height: 50vh;
   line-height: 0.9; 
   width: 100%;
+  z-index: 0;
+}
+.hero-banner-container .small-text{
+  font-size: 1.2rem;
+  max-width: 30%;
 
-}
-.hero-banner-container .beats-solo{
-  font-size: 20px;
-}
-.hero-banner-container button{
-   border-radius: 15px;
-  padding: 10px 16px;
-  background-color: #f02d34;
-  color: white;
-  border: none;
-  margin-top: 40px;
-  font-size: 18px;
-  font-weight: 500;
-  cursor: pointer;
-  z-index:10000 !important;
+  position: absolute;
+  left: 10%;
+  top: 5%; 
+  z-index: 2;  
 }
 
 .hero-banner-container h3{
-  font-size: 4rem;
-  margin-top: 4px;
+  font-size: 3rem;
+
+  opacity: 0.7;
+  max-width: 30%;
+  
+  position: absolute;
+  left: 10%;
+  top: 20%;
+
+  z-index: 2;  
 }
-.hero-banner-container h1{
+ .hero-banner-container h1{
   color: white;
-  font-size: 10em;
-  margin-left: -20px;
+  opacity: 0.6;
+  font-size: 8rem;
+  
   text-transform: uppercase;
+  max-width: 30%;
+
+  position: absolute;
+  left: 10%;
+  bottom: 30%;
+  z-index: 1;  
 }
+.hero-banner-container button{
+  border-radius: 15px;
+  padding: 1% 3%;
+  background-color: #4f3f3f;
+  color: white;
+  border: none;
+  margin-top: 5%;
+  font-size: 100%;
+  font-weight: 500;
+  cursor: pointer;
+
+  position: absolute;
+  left: 10%;
+  bottom: 10%;
+  z-index: 2;
+ }
+ .hero-banner-container button:hover{
+  background-color: #4f3f3fa6;
+ }
 .hero-banner-image{
   position: absolute;
-  top: 0%;
-  right:20%;
-  width: 450px;
-  height: 450px;
+  top: 5%;
+  right:5%;
+  border-radius: 15px;
+  
+  max-width: 100%;
+  max-height: 60%;
+  min-width: 30%;
+  object-fit: cover;
+  width: 50vw;
+
+  z-index: 1;
 }
 
-
-.desc{
-position: absolute;
-right: 10%;
-bottom: 5%;
-width: 300px;
-line-height: 1.3;
-display: flex;
-flex-direction: column;
- color: #324d67;
-
+.hero-banner-container .desc{
+  position: absolute;
+  right: 5%;
+  bottom: 5%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  color: #324d67;
+  z-index: 2;
 }
-.desc p{
+.hero-banner-container .desc p{
   color: #5f5f5f;
   font-weight: 100;
 text-align: end;
 }
-.desc h5{
+.hero-banner-container .desc h5{
   margin-bottom: 12px;
   font-weight: 700;
   font-size: 16px;
@@ -212,14 +248,14 @@ text-align: end;
 }
 .footer-banner-container{
   padding: 100px 40px;
-  background-color: #f02d34;
+  background-color: #dcdcdc;
   border-radius: 15px;
   position: relative;
-  height: 400px;
-  line-height: 1; 
+  height: 50vh;
+  line-height: 0.9; 
   color: white;
   width: 100%;
-  margin-top: 120px;
+  margin-top: 20px;
 }
 .banner-desc{
   display: flex ;
@@ -229,7 +265,7 @@ text-align: end;
   border-radius: 15px;
   padding: 10px 16px;
   background-color: white;
-  color: red;
+  color: #4f3f3f;
   border: none;
   margin-top: 40px;
   font-size: 18px;
@@ -246,10 +282,17 @@ text-align: end;
 }
 .footer-banner-image{
   position: absolute;
-  /* top: -35%;
-  left: 8%; */
-  top: -25%;
-  left: 25%;
+  top: 5%;
+  right:5%;
+  border-radius: 15px;
+  
+  max-width: 100%;
+  max-height: 60%;
+  min-width: 30%;
+  object-fit: cover;
+  width: 50vw;
+
+  z-index: 1;
 }
 .banner-desc .right{
   line-height: 1.4;
@@ -619,25 +662,21 @@ margin-top: 160px;
 }
 
 @media screen and (max-width:800px) {
-  .hero-banner-container{
-    height: 560px;
+
+  .hero-banner-container .small-text{
+    font-size: 4vmin;
   }
-  .hero-banner-image{
-    width: 77%;
-    height: 62%;
-    top: -2%;
-    right: -6%;
+  .hero-banner-container h3{
+    font-size: 8vmin;
+  }
+  .hero-banner-container h1{
+    font-size: 15vmin;
   }
   .footer-banner-container{
     height: 560px;
     margin-top: 80px;
   }
-  .footer-banner-image{
-    width: 77%;
-    left: 30%;
-    top: 6%;
-    height: 56%
-  }
+
   .banner-desc .left h3{
     font-weight: 900;
     font-size: 50px;
@@ -659,19 +698,7 @@ margin-top: 160px;
     flex-wrap: wrap;
     gap: 20px;
   }
-  .hero-banner-container{
-    line-height: 1.3;
-  }
-  .hero-banner-container h1{
-    font-size: 50px;
-  }
- .hero-banner-container h3{
-    font-size: 40px;
-  }
-  .hero-banner-container button{
-    margin-top: 90px;
-    z-index: 10000;
-  }
+
   .desc{
    bottom: 60px;
   }
