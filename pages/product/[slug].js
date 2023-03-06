@@ -76,10 +76,13 @@ const ProductDetails = ({product, products}) => {
                 <div 
                   className="maylike-products-container track" 
                   >
-                    {products.map((item) => (
+                    { // dynamic block of code, take all of our products and map over them, get our individual item and return self closing Product tag imported form /components/
+                      // provide product itself, whih is here item -> topin: rename item to detailed_product?
+                      products.map((item) => (
                         <Product key={item._id} product={item}/>
-                        
-                    ))}
+                      )
+                      )
+                    } 
                 </div>
             </div>
         </div>
