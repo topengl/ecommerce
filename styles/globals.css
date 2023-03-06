@@ -128,7 +128,13 @@ width: 100%;
   color: black;
 }
 
-/* topin: hero banner should only be shown, when you scroll up, but not on load of page */
+/* topin ToDo: 
+ 0. firt do the design for mobile website
+ 1. hero banner should only be shown, when you scroll up, but not on load of page 
+ 2. maybe try also a mix of viewport (relative to screen size) and zoomable units like rem % or em.
+ 3. check difference rem, em, % and explain in a comment why which is used
+ 4. tailwind css?
+ */
 .hero-banner-container{
 
   padding: 100px 40px;
