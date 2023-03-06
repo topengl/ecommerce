@@ -11,7 +11,7 @@ import { Product } from '../../components';
 // component is going to be named ProductDetails
 const ProductDetails = ({product, products}) => {
     const{image, name, details, price} = product;
-    const [index, setIndex] = useState(0);
+    const [index, setIndex] = useState(0); // at start we want to look at the image under the index of 0
     
   return (
     <div>
@@ -31,8 +31,8 @@ const ProductDetails = ({product, products}) => {
                                   <img
                                       key={i}
                                       src={urlFor(item)} 
-                                      className={i === index ? 'small-image selected-image' : 'small-image'} 
-                                      onMouseEnter={() => setIndex(i)}
+                                      className={i === index ? 'small-image selected-image' : 'small-image'} // if i is equal to the index we want to see in detail
+                                      onMouseEnter={() => setIndex(i)} // we set the index index to the one of the specific item
                                   />  
                                 )
                               )
