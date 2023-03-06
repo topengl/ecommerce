@@ -464,12 +464,17 @@ padding: 30px 65px;
   transform: scale(1.1,1.1);
 }
 .product-detail-container{
-  display: flex;
+ display: flex;
  gap: 40px;
  margin: 40px;
  margin-top: 60px;
  color: #324d67;
+}
 
+.product-detail-container .product-detail-image{
+  max-width: 50vw;
+  max-height: 50vh;
+  object-fit: cover;
 }
 
 .product-detail-image{
@@ -667,6 +672,8 @@ margin-top: 160px;
   margin-top: 10px;
 }
 
+
+
 @media screen and (max-width:800px) {
 
   .hero-banner-container .small-text{
@@ -712,7 +719,7 @@ margin-top: 160px;
     flex-wrap: wrap;
     }
   .product-detail-container .product-detail-image{
-    width: 350px;
+    width: 350vw;
     height: 350px;
   }
   .cart-container{
