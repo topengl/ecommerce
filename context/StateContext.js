@@ -19,7 +19,11 @@ export const StateContext = ({ children }) => {
   const onAdd = (product, quantity) => {
     // check if the product we want to add is already in the cart
     // we loop over all of the cart items (item) for every individual item and we check if the product._id we added is the same as the one of the item._ids in the cart and return that to the variable checkProductInCart
-    const checkProductInCart = cartItems.find((item) => item._id === product._id);
+    
+    const checkProductInCart = cartItems.find((item) => {
+      return(item._id === product._id);
+    })
+
     // increase the quantity and the Total Price of that state
     setTotalPrice((prevTotalPrice) => prevTotalPrice + (product.price * quantity));
     setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + quantity);
@@ -28,20 +32,23 @@ export const StateContext = ({ children }) => {
     {
       // so now we updated the states we need to update the items in the cart:
       // we want to map over our current cart items, we get each individual cartProduct
-      
+
       const updatedCartItems = cartItems.map((cartProduct) => {
-        // we need to grab the product we are trying to add
-        if(cartProduct._id === product._id) return{
-          // we return a new object the spreaded ...cartProduct
-          ...cartProduct,
-          // but we update the quantity of cartProduct with the new quantity we are trying to add
-          quantity: cartProduct.quantity + quantity
+        // we need to grab the product we are trying to change
+        if(cartProduct._id === product._id)
+        {
+          cartProduct.quantity = cartProduct.quantity + quantity;
         }
+        return{
+          // for each element of the array, we return the changed/ not changed cartProduct
+          ...cartProduct
+        };
       })
       
-      setCartItems(updatedCartItems);
+      setCartItems([...updatedCartItems]);
     } // if the product is not in the cart, add it to the cart
-    else {
+    else
+    {
       // if the product is not in the cart we need to update the product quantity in the cart
       product.quantity = quantity;
       // we update cartItems with an object of the spreaded product with the updated quantity
@@ -49,7 +56,7 @@ export const StateContext = ({ children }) => {
     }
     toast.success(`Added ${qty} ${product.name} to the cart`);
   }
-
+  
   // incrementing quantities
   const incQty = () => {
     setQty((prevQty) => prevQty +1);
