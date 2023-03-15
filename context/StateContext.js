@@ -11,7 +11,7 @@ const Context =  createContext(); // we call that as a hook
 export const StateContext = ({ children }) => {
   const [showCart, setShowCart] = useState(false);    // manage the state to show or not show the cart
   const [cartItems, setCartItems] = useState([]); // we always need to know what items are stored in the cart, it will be filled with data coming from local storage, // needs to be an array so for example .find would work
-  const [totalPrice, setTotalPrice] = useState();
+  const [totalPrice, setTotalPrice] = useState(0);
   const [totalQuantities, setTotalQuantities] = useState(0);
   const [qty, setQty] = useState(1); // in the beginning it is one, but we can change the quantity for each individual item
   // dynamic update funcitons
@@ -56,7 +56,10 @@ export const StateContext = ({ children }) => {
     }
     toast.success(`Added ${qty} ${product.name} to the cart`);
   }
-  
+  // quantities for Cart and Product page
+  const toggleCartItemQuantity = (id, value) => {
+    
+  }
   // incrementing quantities
   const incQty = () => {
     setQty((prevQty) => prevQty +1);
