@@ -8,7 +8,7 @@ import { urlFor } from '../lib/client'; // import images from Sanity
 
 export const Cart_jsx = () => {
   const cartRef = useRef();
-  const { totalPrice, totalQuantities, cartItems, setShowCart} = useStateContext(); // we call this as a hook
+  const { totalPrice, totalQuantities, cartItems, setShowCart, toggleCartItemQuantity, onRemove} = useStateContext(); // we call this as a hook
 
   return (
     <div className="cart-wrapper" ref={cartRef}> {/*this is our wrapper*/}
@@ -53,15 +53,15 @@ export const Cart_jsx = () => {
                 <div className="flex bottom">
                   <div>
                     <p className="quantity-desc">
-                      <span className="minus" onClick=""><AiOutlineMinus /></span>
-                      <span className="num" onClick="">0</span> {/* topin: bug if the onClick function stays empty we get an error : TypeError: func.apply is not a function*/}
-                      <span className="plus" onClick=""><AiOutlinePlus /></span>
+                      <span className="minus" onClick={() => toggleCartItemQuantity(eachCartItem._id,-1)}><AiOutlineMinus /></span>
+                      <span className="num">{eachCartItem.quantity}</span> {/* topin: bug if the onClick function stays empty we get an error : TypeError: func.apply is not a function*/}
+                      <span className="plus" onClick={() => toggleCartItemQuantity(eachCartItem._id,+1)}><AiOutlinePlus /></span>
                     </p>
                   </div>
                   <button 
                     type="button"
                     className="remove-item"
-                    onClick=""
+                    onClick={() => onRemove(eachCartItem)}
                   >
                     <TiDeleteOutline/>
                   </button>

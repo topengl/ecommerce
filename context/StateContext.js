@@ -14,6 +14,7 @@ export const StateContext = ({ children }) => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalQuantities, setTotalQuantities] = useState(0);
   const [qty, setQty] = useState(1); // in the beginning it is one, but we can change the quantity for each individual item
+
   // dynamic update funcitons
   // add items to the cart
   const onAdd = (product, quantity) => {
@@ -55,22 +56,49 @@ export const StateContext = ({ children }) => {
       setCartItems([...cartItems, {...product}]);
     }
     toast.success(`Added ${qty} ${product.name} to the cart`);
+  };
+  // remove items 
+  const onRemove = (product) => {
+    let foundProduct = cartItems.find((item) => item._id === product._id);
+    const newCartItems = cartItems.filter((item) => item._id!== product._id);
+    setCartItems([...newCartItems]);
+    setTotalPrice((prevTotalPrice) => prevTotalPrice - (foundProduct.price * foundProduct.quantity));
+    setTotalQuantities((prevTotalQuantities) => prevTotalQuantities - foundProduct.quantity);
   }
+
   // quantities for Cart and Product page
   const toggleCartItemQuantity = (id, value) => {
-    
-  }
+    // we get the item from the cartItems array for the specific id
+    let foundProduct = cartItems.find((item) => item._id === id);
+    if(foundProduct.quantity >=2) // if the found product is 1, then we do not want to decrese -1 to 0, the user then should only be able to delete the item 
+    {
+      const updatedProducts = cartItems.map((cartProduct) => {
+        // we need to grab the product we are trying to change
+        if(cartProduct._id === id)
+        {
+          cartProduct.quantity = cartProduct.quantity + value;
+        }
+        return{
+          // for each element of the array, we return the changed/ not changed cartProduct
+          ...cartProduct
+        };
+      })
+      setCartItems([...updatedProducts]);
+      setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + value);
+      setTotalPrice((prevTotalPrice) => prevTotalPrice + (value * foundProduct.price));
+    }
+  };
   // incrementing quantities
   const incQty = () => {
     setQty((prevQty) => prevQty +1);
-  }
+  };
 
   const decQty = () => {
     setQty((prevQty) => {
       if(prevQty-1 < 1) return 1;
       return prevQty -1;
     });
-  }
+  };
 
   // create context provider
   // we pass in our children into Context.Provider means we not going to render everything, but we just going to wrap everything with Context.Proiver
@@ -88,6 +116,8 @@ export const StateContext = ({ children }) => {
         incQty,
         decQty,
         onAdd,
+        toggleCartItemQuantity,
+        onRemove,
       }}>
       {children}
     </Context.Provider>
