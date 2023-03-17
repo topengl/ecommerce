@@ -5,10 +5,34 @@ import { TiDeleteOutline } from 'react-icons/ti'; // another icon
 import toast from 'react-hot-toast'; // pop up messages
 import { useStateContext } from '../context/StateContext';
 import { urlFor } from '../lib/client'; // import images from Sanity
+import getStripe from '../lib/getStripe'; 
+
+
 
 export const Cart_jsx = () => {
   const cartRef = useRef();
   const { totalPrice, totalQuantities, cartItems, setShowCart, toggleCartItemQuantity, onRemove} = useStateContext(); // we call this as a hook
+
+
+  const handleCheckout = async () => { // watch out to leave a space between async and () !!!
+    const stripe = await getStripe();
+
+    const response = await fetch('/api/stripe', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(cartItems),
+    });
+    if(response.statusCode === 500)
+    {
+      console.log('response.statusCode === 500');
+      return;
+    }
+    const data = await response.json();
+    toast.loading('Redirecting...');
+    stripe.redirectToCheckout({ sessionId: data.id });
+  }
 
   return (
     <div className="cart-wrapper" ref={cartRef}> {/*this is our wrapper*/}
@@ -77,7 +101,7 @@ export const Cart_jsx = () => {
                 </h3>
               </div>
               <div className="btn-container">
-                <button type="button" className="btn" onClick="">
+                <button type="button" className="btn" onClick={handleCheckout}>
                   Pay with Stripe
                 </button>
               </div>

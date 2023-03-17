@@ -61,13 +61,13 @@ const ProductDetails = ({product, products}) => {
                     <h3>Quantity:</h3>
                     <p className="quantity-desc">
                         <span className="minus" onClick={decQty}><AiOutlineMinus /></span>
-                        <span className="num" onClick="">{qty}</span> {/* topin: bug if the onClick function stays empty we get an error : TypeError: func.apply is not a function*/}
+                        <span className="num" >{qty}</span> {/* topin: bug if the onClick function stays empty we get an error : TypeError: func.apply is not a function*/}
                         <span className="plus" onClick={incQty}><AiOutlinePlus /></span>
                     </p>
                 </div>
                 <div className="buttons">
                     <button type="button" className="add-to-cart" onClick={() => onAdd(product,qty)}>Add to Cart</button>
-                    <button type="button" className="buy-now" onClick="">Buy Now</button>
+                    <button type="button" className="buy-now" >Buy Now</button> {/* topin: onClick="" */}
                 </div>
             </div>
         </div>
