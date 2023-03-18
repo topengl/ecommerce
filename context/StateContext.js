@@ -110,8 +110,11 @@ export const StateContext = ({ children }) => {
         showCart,
         setShowCart, // set show cart needs to be added to context provider so it can be used in Navbar
         cartItems,
+        setCartItems,
         totalPrice,
+        setTotalPrice,
         totalQuantities,
+        setTotalQuantities,
         qty,
         incQty,
         decQty,
