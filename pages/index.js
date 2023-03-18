@@ -6,8 +6,8 @@ import {FooterBanner, HeroBanner, Product} from '../components';
 const Home = ({products, bannerData}) => {
   return (
     <>
-      <HeroBanner heroBanner = {bannerData.length && bannerData[0] /* if bannerData Array exists, we gonna pass the first element of bannerData*/ } />
-      {console.log(bannerData)}
+      <HeroBanner heroBanner = {bannerData.length && bannerData[0] } /> {/* if bannerData Array exists, we gonna pass the first element of bannerData */}
+      {/* console.log(bannerData) */}
 
       <div className="products-heading">
         <h2>Best selling products.</h2>

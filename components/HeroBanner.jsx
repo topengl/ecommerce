@@ -15,7 +15,8 @@ const HeroBanner = ({heroBanner}) => {
             <h1>{heroBanner.largeText1}</h1>
             
             <div>
-                <Link href={`/product/ID${heroBanner.product}`}>
+                <Link href={`/product/${heroBanner.product}`}>  {/* topin: the link has to be the same as for the product. pros and cons for using aditional banner content, then fetch data from the Product content? */}
+                {/*<Link href='/product/flexible_100w_photovoltaic_module'>*/}
                     <button type="button">{heroBanner.buttonText}</button>
                 </Link>
                 <div className="desc">
