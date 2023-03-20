@@ -128,24 +128,22 @@ width: 100%;
   color: black;
 }
 
-/* topin ToDo: 
- 0. firt do the design for mobile website
- 1. hero banner should only be shown, when you scroll up, but not on load of page 
- 2. maybe try also a mix of viewport (relative to screen size) and zoomable units like rem % or em.
- 3. check difference rem, em, % and explain in a comment why which is used
- 4. tailwind css?
- */
+/***************** HERO BANNER *******************************/
 .hero-banner-container{
 
-  padding: 100px 40px;
+  padding: 10px 10px;
   background-color: #dcdcdc;
   border-radius: 15px;
   position: relative;
-  height: 300px;
+  height: 200px;
   max-height: 50vh;
   line-height: 0.9; 
   width: 100%;
   z-index: 0;
+}
+.hero-banner-text-left{
+  display: flex ;
+  justify-content: space-between;
 }
 .hero-banner-container .small-text{
   font-size: 1.2rem;
@@ -172,7 +170,7 @@ width: 100%;
  .hero-banner-container h1{
   color: white;
   opacity: 0.6;
-  font-size: 8rem;
+  font-size: 150px;
   
   text-transform: uppercase;
   max-width: 30%;
@@ -184,12 +182,11 @@ width: 100%;
 }
 .hero-banner-container button{
   border-radius: 15px;
-  padding: 1% 3%;
+  padding: 10px 12px;
   background-color: #4f3f3f;
   color: white;
   border: none;
-  margin-top: 5%;
-  font-size: 100%;
+  font-size: 20px;
   font-weight: 500;
   cursor: pointer;
 
@@ -207,11 +204,10 @@ width: 100%;
   right:5%;
   border-radius: 15px;
   
-  max-width: 100%;
+  width: 50%;
   max-height: 60%;
   min-width: 30%;
   object-fit: cover;
-  width: 50vw;
 
   z-index: 1;
 }
@@ -238,6 +234,8 @@ text-align: end;
   /* color: black; */
   align-self: flex-end;
 }
+
+/************************ PRODUCTS ************************************/
 .products-heading{
   text-align: center;
   margin: 40px 0px;
@@ -252,87 +250,113 @@ text-align: end;
   font-size: 16px;
   font-weight: 200;
 }
+
+/************************ FOOTER BANNER ********************************/
 .footer-banner-container{
-  padding: 100px 40px;
+  padding: 10px 10px;
   background-color: #dcdcdc;
   border-radius: 15px;
-  position: relative;
-  height: 50vh;
+  height: 300px;
   line-height: 0.9; 
-  color: white;
   width: 100%;
-  margin-top: 20px;
-}
-.banner-desc{
-  display: flex ;
+  margin-top: 20px; /* to leaves space to the products above. THey expand when hovering.*/
+  
+  z-index: 0;
+  
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: space-between;
+  align-items: center;
+  align-content: space-around;
+  
 }
-.banner-desc button{
-  border-radius: 15px;
-  padding: 10px 16px;
-  background-color: white;
+.footer-banner-container .left{
+  width: 40%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: space-around;
+}
+.footer-banner-container .left p{
   color: #4f3f3f;
+  font-size: 30px;
+  z-index: 2; 
+}
+.footer-banner-container .left h1{
+  color: white;
+  opacity: 0.6;
+  font-size: 150px;
+  
+  text-transform: uppercase;
+  max-width: 30%;
+
+  margin: -40px;
+  z-index: 0; 
+}
+.footer-banner-container .left h2{
+  color: #4f3f3f69;
+  font-size: 40px;
+  z-index: 2; 
+}
+.footer-banner-container .left .buttonBox{
+  z-index: 2;
+  margin: 10px;
+ }
+ .footer-banner-container .left button{
+  border-radius: 15px;
+  padding: 10px 12px;
+  background-color: #4f3f3f;
+  color: white;
   border: none;
-  margin-top: 40px;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 500;
   cursor: pointer;
-}
-.banner-desc .left h3{
-  font-weight: 900;
-  font-size: 80px;
-  margin-left: 25px;
-}
-.banner-desc .left p{
-  margin:18px;
-}
-.footer-banner-image{
-  position: absolute;
-  top: 5%;
-  right:5%;
-  border-radius: 15px;
-  
-  max-width: 100%;
-  max-height: 60%;
-  min-width: 30%;
-  object-fit: cover;
-  width: 50vw;
+ }
+ .footer-banner-container .left button:hover{
+  background-color: #4f3f3fa6;
+ }
 
-  z-index: 1;
+.footer-banner-container .right{
+  width: 60%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: space-around;
 }
-.banner-desc .right{
-  line-height: 1.4;
-}
-.banner-desc .right h3{
+
+.footer-banner-container .right h1{
   font-weight: 800;
   font-size: 60px;
 }
-.banner-desc .right p{
+.footer-banner-container .right p{
   font-size: 18px;
 }
-.banner-desc .right .company-desc{
+.footer-banner-container .right .company-desc{
   font-size: 14px;
   font-weight: 300;
 }
-.cart-wrapper{
-  width: 100vw;
-  background: rgba(0, 0, 0, 0.5);
-  position: fixed;
-  right: 0;
-  top: 0;
-  z-index: 100;
-  /* will-change: transform; */
-  transition: all 1s ease-in-out;
-
+.footer-banner-container .right .imageBox{
+  width: 100%;
+  height: 60%;
+  z-index: 1;
 }
-.cart-container{
-  height: 100vh;
-  width: 600px;
-  background-color: white;
-  float: right;
-  padding: 40px 10px;
-  position: relative;
+.footer-banner-container .right .imageBox .footer-banner-image{
+  border-radius: 15px;
   
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+
 }
 
 .footer-container{
@@ -353,6 +377,47 @@ text-align: end;
   display: flex;
   gap: 10px;
 }
+.banner-desc button{
+  border-radius: 15px;
+  padding: 10px 12px;
+  background-color: #4f3f3f;
+  color:  white;
+  border: none;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+
+  position: absolute;
+  left: 10%;
+  bottom: 10%;
+  z-index: 2;
+}
+.banner-desc button:hover{
+  background-color: #4f3f3fa6;
+}
+
+/******************************** CART *********************/
+.cart-wrapper{
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 100;
+  /* will-change: transform; */
+  transition: all 1s ease-in-out;
+
+}
+.cart-container{
+  height: 100vh;
+  width: 600px;
+  max-width: 100vw;
+  background-color: white;
+  float: right;
+  padding: 40px 10px;
+  position: relative;
+  
+}
  .cart-heading{
   display: flex;
   align-items: center;
@@ -370,7 +435,7 @@ text-align: end;
 }
 .cart-num-items{
   margin-left: 10px;
-  color: #f02d34;
+  color: #4f3f3f;
 }
 .empty-cart{
   margin:40px;
@@ -445,23 +510,19 @@ padding: 30px 65px;
   margin: auto;
 }
 .btn{
-  width: 100%;
-  max-width: 400px;
-  padding: 10px 12px;
   border-radius: 15px;
+  padding: 10px 12px;
+  background-color: #4f3f3f;
+  color: white;
   border: none;
   font-size: 20px;
   margin-top: 10px;
-  margin-top: 40px;
-  text-transform: uppercase;
-  background-color: #f02d34;
-  color: #fff;
   cursor: pointer;
-    transform: scale(1, 1);
-  transition: transform 0.5s ease;
+
+
 }
 .btn:hover{
-  transform: scale(1.1,1.1);
+  background-color: #4f3f3fa6;
 }
 .product-detail-container{
  display: flex;
@@ -676,6 +737,7 @@ margin-top: 160px;
 
 @media screen and (max-width:800px) {
 
+  /********************* HERO BANNER MOBILE *******************/
   .hero-banner-container .small-text{
     font-size: 4vmin;
   }
@@ -685,11 +747,12 @@ margin-top: 160px;
   .hero-banner-container h1{
     font-size: 15vmin;
   }
+
+  /********************* FOOTER BANNER MOBILE *******************/
   .footer-banner-container{
     height: 560px;
     margin-top: 80px;
   }
-
   .banner-desc .left h3{
     font-weight: 900;
     font-size: 50px;
@@ -712,6 +775,9 @@ margin-top: 160px;
     gap: 20px;
   }
 
+
+
+  
   .desc{
    bottom: 60px;
   }
