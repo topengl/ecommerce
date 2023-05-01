@@ -3,7 +3,8 @@ Within the _app file you can fully control the page initialization process
 by implementing custom logic 
 to make your pages consistent across your web property. */
 import { Layout } from '../components';
-import '@/styles/globals.css';
+//import '@/styles/globals.css';
+import '../styles/App.scss';
 import {StateContext } from '../context/StateContext';
  import { Toaster } from 'react-hot-toast'; // is a module that helps providing pop ups on a website
 
