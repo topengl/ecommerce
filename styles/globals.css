@@ -3,6 +3,8 @@
 
 */
 :root {
+  --color-all:  black;
+  --background-all: #eeeeee;
   --bright-red:   #f02d34;
   --gray:         gray;
   --blue-gray:    #324d67;
@@ -14,16 +16,40 @@
   --middle-brown-hover: #4f3f3fa6;
   --green:        green;   
 }
+@media (prefers-color-scheme:  dark){
+  :root{
+    --background-all: #000000;
+    --color-all:  rgb(255, 255, 255);
+    --bright-red:   #f02d34;
+    --gray:         rgb(213, 213, 213);
+    --blue-gray:    #c1d0de;
+    --middle-white: #ebebeb;
+    --white:        white;
+    --black:        rgb(255, 255, 255);
+    --black-transparent: rgba(0, 0, 0, 0.5);
+    --middle-brown: #507aa1;
+    --middle-brown-hover: #4f3f3fa6;
+    --green:        green;
+  }
+}
 
-html,
-body, * {
+* {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   box-sizing: border-box;
-
+  
 }
+html{
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+  scroll-behavior: smooth;
+}
+body{
+  color:      var(--color-all);
+  background: var(--background-all);
+} 
+
 /*deleted because i want to show scrollbar
  ::-webkit-scrollbar {
   width: 5px;
@@ -73,7 +99,7 @@ width: 100%;
     right: -8px;
     font-size: 12px;
     color: #eee;
-    background-color: #f02d34;
+    background-color: var(--bright-red);
     width: 18px;
     height: 18px;
     border-radius: 50%;
@@ -241,7 +267,7 @@ width: 100%;
   .maylike-products-wrapper h2{
     text-align: center;
     margin: 50px;
-    color: #324d67;
+    color: var(--blue-gray);
     font-size: 28px;
   }
   .marquee {
@@ -272,113 +298,10 @@ width: 100%;
       animation-play-state: paused;
     }
 
-/************************ FooterBanner.jsx ********************************/
-.footer-banner-container{
-  background-color: var(--middle-white);
-  padding: 10px 10px;
-  border-radius: 15px;
-  height: 300px;
-  line-height: 0.9; 
-  width: 100%;
-  margin-top: 20px; /* to leaves space to the products above. THey expand when hovering.*/
-  
-  z-index: 0;
-  
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  align-content: space-around;
-  
-}
-  .footer-banner-container .left{
-    width: 40%;
-    height: 100%;
 
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    align-content: space-around;
-  }
-    .footer-banner-container .left p{
-      color: #4f3f3f;
-      font-size: 30px;
-      z-index: 2; 
-    }
-    .footer-banner-container .left h1{
-      color: white;
-      opacity: 0.6;
-      font-size: 150px;
-      
-      text-transform: uppercase;
-      max-width: 30%;
-
-      margin: -40px;
-      z-index: 0; 
-    }
-    .footer-banner-container .left h2{
-      color: #4f3f3f69;
-      font-size: 40px;
-      z-index: 2; 
-    }
-    .footer-banner-container .left .buttonBox{
-      z-index: 2;
-      margin: 10px;
-    }
-    .footer-banner-container .left button{
-      border-radius: 15px;
-      padding: 10px 12px;
-      background-color: var(--middle-brown);
-      color: white;
-      border: none;
-      font-size: 20px;
-      font-weight: 500;
-      cursor: pointer;
-    }
-    .footer-banner-container .left button:hover{
-      background-color: var(--middle-brown-hover);
-    }
-
-  .footer-banner-container .right{
-    width: 60%;
-    height: 100%;
-
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    align-content: space-around;
-  }
-    .footer-banner-container .right h1{
-      font-weight: 800;
-      font-size: 60px;
-    }
-    .footer-banner-container .right p{
-      font-size: 18px;
-    }
-    .footer-banner-container .right .company-desc{
-      font-size: 14px;
-      font-weight: 300;
-    }
-    .footer-banner-container .right .imageBox{
-      width: 100%;
-      height: 60%;
-      z-index: 1;
-    }
-    .footer-banner-container .right .imageBox .footer-banner-image{
-      border-radius: 15px;
-      
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
 /* ***************** Footer.jsx ************** */
 .footer-container{
-  color: #324d67;
+  color: var(--blue-gray);
   text-align: center;
   margin-top: 20px;
   padding: 30px 10px;
@@ -412,7 +335,7 @@ width: 100%;
     height: 100vh;
     width: 600px;
     max-width: 100vw;
-    background-color: white;
+    background-color: var(--background-all);
     float: right;
     padding: 40px 10px;
     position: relative;
@@ -428,6 +351,7 @@ width: 100%;
       margin-left: 10px;
       border: none;
       background-color: transparent;
+      color: var(--middle-white);
     }
 
       .cart-heading .heading{
@@ -435,7 +359,7 @@ width: 100%;
       }
       .cart-num-items{
         margin-left: 10px;
-        color: #4f3f3f;
+        color: var(--blue-gray);
       }
   .empty-cart{
     margin:40px;
@@ -649,7 +573,7 @@ width: 100%;
 }
 .flex h5{
   font-size: 16px;
-   color: #324d67;
+   color: var(--blue-gray);
 }
 .flex h4{
   font-size: 16px;

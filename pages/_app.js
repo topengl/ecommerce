@@ -5,7 +5,7 @@ to make your pages consistent across your web property. */
 import { Layout } from '../components';
 import '@/styles/globals.css';
 import {StateContext } from '../context/StateContext';
- import { Toaster } from 'react-hot-toast'; // is a module that helps providing pop ups on a website
+import { Toaster } from 'react-hot-toast'; // is a module that helps providing pop ups on a website
 
 function MyApp({ Component, pageProps }) 
 {
