@@ -81,111 +81,7 @@ width: 100%;
     font-weight: 600;
 
   }
-  
-  /* **************** HeroBanner.jsx ****************************** */
-  .hero-banner-container{
-    padding: 10px 10px;
-    background-color: var(--middle-white);
-    border-radius: 15px;
-    position: relative;
-    height: 200px;
-    max-height: 50vh;
-    line-height: 0.9; 
-    width: 100%;
-    z-index: 0;
-  }
-    .hero-banner-text-left{
-      display: flex ;
-      justify-content: space-between;
-    }
-    .hero-banner-container .small-text{
-      font-size: 1.2rem;
-      max-width: 30%;
-  
-      position: absolute;
-      left: 10%;
-      top: 5%; 
-      z-index: 2;  
-    }
-    .hero-banner-container h3{
-      font-size: 3rem;
-  
-      opacity: 0.7;
-      max-width: 30%;
       
-      position: absolute;
-      left: 10%;
-      top: 20%;
-  
-      z-index: 2;  
-    }
-    .hero-banner-container h1{
-      color: white;
-      opacity: 0.6;
-      font-size: 150px;
-      
-      text-transform: uppercase;
-      max-width: 30%;
-  
-      position: absolute;
-      left: 10%;
-      bottom: 30%;
-      z-index: 1;  
-    }
-    .hero-banner-container button{
-      border-radius: 15px;
-      padding: 10px 12px;
-      background-color: var(--middle-brown);
-      color: var(--white);
-      border: none;
-      font-size: 20px;
-      font-weight: 500;
-      cursor: pointer;
-  
-      position: absolute;
-      left: 10%;
-      bottom: 10%;
-      z-index: 2;
-    }
-    .hero-banner-container button:hover{
-      background-color: var(--middle-brown-hover);
-    }
-    .hero-banner-image{
-      position: absolute;
-      top: 5%;
-      right:5%;
-      border-radius: 15px;
-      
-      width: 50%;
-      max-height: 60%;
-      min-width: 30%;
-      object-fit: cover;
-  
-      z-index: 1;
-    }
-    .hero-banner-container .desc{
-      position: absolute;
-      right: 5%;
-      bottom: 5%;
-      width: 50%;
-      display: flex;
-      flex-direction: column;
-      color: var(--blue-gray);
-      z-index: 2;
-    }
-    .hero-banner-container .desc p{
-      color: var(--blue-gray);
-      font-weight: 100;
-      text-align: end;
-    }
-    .hero-banner-container .desc h5{
-      margin-bottom: 12px;
-      font-weight: 700;
-      font-size: 16px;
-      color: var(--blue-gray);
-      align-self: flex-end;
-    }
-    
 /* ************* index.js - PRODUCTS ************** */
 
 .products-heading{
@@ -673,16 +569,7 @@ width: 100%;
 /************************ small screen *************************/
 @media screen and (max-width:800px) {
 
-  /********************* HERO BANNER MOBILE *******************/
-  .hero-banner-container .small-text{
-    font-size: 4vmin;
-  }
-  .hero-banner-container h3{
-    font-size: 8vmin;
-  }
-  .hero-banner-container h1{
-    font-size: 15vmin;
-  }
+ 
 
   /********************* FOOTER BANNER MOBILE *******************/
   .footer-banner-container{
