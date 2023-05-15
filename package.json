@@ -22,5 +22,6 @@
     "react-icons": "^4.8.0",
     "stripe": "^11.15.0",
     "react-cookie-consent": "^8.0.1",
-
+    "react-cookie": "^4.1.1"
+  }
 }
