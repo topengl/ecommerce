@@ -5,6 +5,7 @@
 :root {
   --color-all:  black;
   --background-all: #eeeeee;
+  --background-all-2: #c0c0c0;
   --bright-red:   #f02d34;
   --gray:         gray;
   --blue-gray:    #324d67;
@@ -18,11 +19,12 @@
 }
 @media (prefers-color-scheme:  dark){
   :root{
-    --background-all: #000000;
     --color-all:  rgb(255, 255, 255);
+    --background-all: #000000;
+    --background-all-2: #262626;
     --bright-red:   #f02d34;
     --gray:         rgb(213, 213, 213);
-    --blue-gray:    #c1d0de;
+    --blue-gray:    #bbcedf;
     --middle-white: #ebebeb;
     --white:        white;
     --black:        rgb(255, 255, 255);
