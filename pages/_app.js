@@ -7,15 +7,15 @@ import { Layout } from '../components';
 import {StateContext } from '../context/StateContext';
 import { Toaster } from 'react-hot-toast'; // is a module that helps providing pop ups on a website
 import { CookieConsent } from 'react-cookie-consent';
-import { CookiesProvider } from 'react-cookie';
+import Link from 'next/link';
+
+
 
 function MyApp({ Component, pageProps }) 
 {
   return(
     //to have the state values from context/StateContext.js available, we wrap Layout in StateContext
     <StateContext>
-      <CookiesProvider>
-        
         <Layout>
           <Toaster />
           {/* How to we make that Component appear inside our Layout in React? -> Through a prop children */}
@@ -29,13 +29,12 @@ function MyApp({ Component, pageProps })
             buttonStyle={{  color: "var(--color-all)", 
                             fontSize: "13px",
                             background: "var(--bright-red)"}}
-            expires={150}
+            expires={150} // number of days until the cookie expires
           >
-            This website uses cookies to enhance the user experience.{" "}
+            This website uses cookies to enhance the user experience. <Link href = "/privacyPolicy">Privacy Policy</Link>
             <span style={{ fontSize: "10px" }}> ... </span>
         </CookieConsent>
         </Layout>
-      </CookiesProvider>
     </StateContext>
   )
 }
