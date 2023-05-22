@@ -4,7 +4,7 @@ import { AiOutlineMinus, AiOutlinePlus, AiOutlineLeft, AiOutlineShopping } from 
 import { TiDeleteOutline } from 'react-icons/ti'; // another icon
 import toast from 'react-hot-toast'; // pop up messages
 import { useStateContext } from '../context/StateContext';
-import { urlFor } from '../lib/client'; // import images from Sanity
+import { urlForImage } from '../lib/client'; // import images from Sanity
 import getStripe from '../lib/getStripe'; 
 
 
@@ -68,7 +68,7 @@ export const Cart_jsx = () => {
           {/* through each iteration we get the item. each one fo the carItems has an _ id property, item is written in StateContext and origins from onAdd(product, ..)*/}
           {cartItems.length >= 1 && cartItems.map((eachCartItem) => (
             <div className="product" key={eachCartItem._id}> 
-              <img src={urlFor(eachCartItem?.image[0])} className="cart-product-image"/>
+              <img src={urlForImage(eachCartItem?.image[0])} className="cart-product-image"/>
               <div className="item-desc">
                 <div className="flex top">
                   <h5>{eachCartItem.name}</h5>
